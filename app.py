@@ -84,7 +84,7 @@ if uploaded_file:
         # Prediction
         outputs = model(input_tensor)
         _, predicted = torch.max(outputs, 1)
-        prediction = "Benign" if predicted.item() == 0 else "Malignant"
+        prediction = "Malignant" if predicted.item() == 0 else "Benign"
         confidence = torch.softmax(outputs, dim=1)[0][predicted.item()].item() * 100
 
         st.success(f"**Prediction:** {prediction} ")
